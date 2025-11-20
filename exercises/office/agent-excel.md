@@ -9,7 +9,7 @@
 - 요구: `status == "Pending"` 이고 `amount > 100`인 행만 추출, `order_id, customer, amount`만 출력.  
 - 출력: 터미널 표 + `tmp/pending_over_100.csv` 저장.
 
-## 에이전트에게 줄 프롬프트 / Prompt to Agent
+## 에이전트에게 줄 프롬프트 (복붙) / Prompt to Agent (copy-paste)
 ```
 작업: 엑셀 파일에서 조건에 맞는 행을 필터링하고 CSV로 저장.
 파일: data/orders.xlsx, 시트는 기본(Default).
@@ -20,11 +20,32 @@
 명령/파일 변경을 실행하기 전에 한 줄로 계획을 말해줘.
 ```
 
+## 실행 안내 / How to run with agent
+1) VS Code에서 Codex 에이전트 채널 열기.  
+2) 위 프롬프트를 그대로 붙여넣고 Enter.  
+3) 에이전트가 “무엇을 할지” 요약하면 승인.  
+4) 에이전트가 `python` 스크립트를 만들거나 인라인 실행을 제안할 것. 실행 후 콘솔 로그에서 필터된 행 수와 표를 확인.  
+5) 결과 파일 확인: 터미널에서 `ls tmp` → `cat tmp/pending_over_100.csv`.  
+6) 추가 검증을 원하면 “결과 파일을 열고 행 수를 다시 세줘” 같은 후속 프롬프트를 던진다.
+
 ## 기대 행동 / Expected Agent Actions
 - `python - <<'PY' ...` 또는 `scripts/filter_orders.py` 생성 후 실행.  
 - pandas로 시트 읽기, 조건 필터, 필요한 컬럼 선택, `to_csv("tmp/pending_over_100.csv", index=False)`.  
 - 터미널 표(예: `print(df.head())`, `print(len(df))`)를 보여주기.  
 - 결과 파일 경로를 보고하고 오류 시 로그 공유. / Report path and errors if any.
+
+## 수동 재실행 명령 예시 / Manual rerun (if needed)
+```
+python3 - <<'PY'
+import pandas as pd
+df = pd.read_excel("data/orders.xlsx")
+out = df[(df["status"]=="Pending") & (df["amount"]>100)][["order_id","customer","amount"]]
+print(out)
+print("rows:", len(out))
+out.to_csv("tmp/pending_over_100.csv", index=False)
+print("saved to tmp/pending_over_100.csv")
+PY
+```
 
 ## 검증 포인트 / Verification
 - 조건에 맞는 행 수가 맞는지 출력 확인.  
