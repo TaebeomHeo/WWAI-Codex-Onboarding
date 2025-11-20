@@ -4,15 +4,15 @@
 - Codex 에이전트가 직접 엑셀 파일을 읽고 조건에 맞는 행을 추출, 결과를 저장/프린트. / Have Codex read Excel, filter rows, save/print results.
 
 ## 시나리오 / Scenario
-- 파일: `data/orders.xlsx` (시트 이름 기본값 또는 `Orders`).  
-- 컬럼 예시: `order_id`, `customer`, `status`, `amount`, `country`.  
+- 샘플 파일: `data/orders.xlsx` (동봉). 시트 이름: 기본(Default).  
+- 컬럼: `order_id`, `customer`, `status`, `amount`, `country`.  
 - 요구: `status == "Pending"` 이고 `amount > 100`인 행만 추출, `order_id, customer, amount`만 출력.  
 - 출력: 터미널 표 + `tmp/pending_over_100.csv` 저장.
 
 ## 에이전트에게 줄 프롬프트 / Prompt to Agent
 ```
 작업: 엑셀 파일에서 조건에 맞는 행을 필터링하고 CSV로 저장.
-파일: data/orders.xlsx, 시트는 기본 시트 또는 Orders.
+파일: data/orders.xlsx, 시트는 기본(Default).
 조건: status == "Pending" AND amount > 100.
 출력: order_id, customer, amount 컬럼만 표로 보여주고, tmp/pending_over_100.csv로 저장.
 제한: pandas 사용, 새 의존성 필요 시 requirements 에는 추가하지 말고 pip 단발 실행만 사용.
