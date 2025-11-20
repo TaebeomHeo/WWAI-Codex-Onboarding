@@ -1,0 +1,23 @@
+{
+  "name": "wwai-codex-onboarding",
+  "version": "1.0.0",
+  "description": "Codex 에이전트형 데모 2개만 담은 최소 예제 리포지토리입니다. (한/영 병기)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaebeomHeo/WWAI-Codex-Onboarding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaebeomHeo/WWAI-Codex-Onboarding/issues"
+  },
+  "homepage": "https://github.com/TaebeomHeo/WWAI-Codex-Onboarding#readme",
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}
