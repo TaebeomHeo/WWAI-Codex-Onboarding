@@ -10,12 +10,14 @@
 2) Prompting for test cases: steps, data, expected. / 테스트 케이스 프롬프트  
 3) Bug report skeleton + evidence checklist. / 버그 리포트 뼈대와 증빙 체크리스트  
 4) Hands-on: login flow, payment calc, API response. / 실습: 로그인, 결제 계산, API 응답  
-5) Review loop: have Codex self-audit cases. / 리뷰 루프: 셀프 감사
+5) Agent demo: 특정 페이지 텍스트를 읽어 기대값 검증. / 에이전트가 웹 텍스트 확인  
+6) Review loop: have Codex self-audit cases. / 리뷰 루프: 셀프 감사
 
 ## Exercises / 실습
 - Expand baseline login cases with edge data; dedupe. / 로그인 기본/엣지 케이스 확장
 - Turn failing scenario into defect report (KR+EN). / 실패 시나리오를 한/영 버그 리포트로 변환
 - Ask for missing risks; generate clarifying questions. / 누락된 리스크 요청, 질의 생성
+- Agent: `exercises/qa/agent-webcheck.md` 따라 웹 텍스트 검증 실행. / 웹 텍스트 검증 실습
 
 ## Tips / 팁
 - Provide UI/API states, roles, data ranges. / UI/API 상태, 권한, 데이터 범위 제공
